@@ -1,0 +1,22 @@
+{
+  "name": "@frixaco/api-client",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frixaco/npm-aws-registry.git"
+  },
+  "author": "frixaco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frixaco/npm-aws-registry/issues"
+  },
+  "homepage": "https://github.com/frixaco/npm-aws-registry#readme",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}

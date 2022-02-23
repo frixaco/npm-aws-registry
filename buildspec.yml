@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  pre-build:
+    commands:
+      - aws codeartifact login --tool npm --repository api-client --domain api-client --domain-owner 660268862032
+  build:
+    commands:
+      - npm run build
+      - npm publish
+artifacts:
+  files:
+    - "**/*"
+  name: api-client-$(date +%d%H%M)
