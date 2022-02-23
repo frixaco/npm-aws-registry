@@ -4,14 +4,18 @@ phases:
   install:
     commands:
       - npm install
-  pre-build:
+  pre_build:
     commands:
-      - aws codeartifact login --tool npm --repository api-client --domain api-client --domain-owner 660268862032
+      - git config user.email "rustam21ashurmatov@gmail.com"
+      - git config user.name "frixaco"
+      - aws codeartifact login --tool npm --repository dev-api-client --domain frixaco --domain-owner 660268862032
   build:
     commands:
       - npm run build
-      - npm publish
+      - npm version patch
+      - npm publish --tag dev
 artifacts:
   files:
     - "**/*"
+  # name: api-client-dev-$(date +%d%H%M)
   name: api-client-$(date +%d%H%M)
