@@ -13,7 +13,7 @@ phases:
     commands:
       - npm run build
       - npm version patch
-      - npm publish --tag live
+      - npm publish --tag dev
 artifacts:
   files:
     - "**/*"
