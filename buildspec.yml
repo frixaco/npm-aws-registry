@@ -8,7 +8,7 @@ phases:
     commands:
       - git config user.email "rustam21ashurmatov@gmail.com"
       - git config user.name "frixaco"
-      - aws codeartifact login --tool npm --repository live-api-client --domain frixaco --domain-owner 660268862032
+      - aws codeartifact login --tool npm --repository dev-api-client --domain frixaco --domain-owner 660268862032
   build:
     commands:
       - npm run build
