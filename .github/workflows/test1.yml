@@ -10,7 +10,7 @@ jobs:
       contents: read
     run:
       - name: Auth with AWS
-        run:|
+        run:
           export AWS_ROLE_ARN=arn:aws:iam::660268862032:role/github-assume
           export AWS_WEB_IDENTITY_TOKEN_FILE=/tmp/awscreds
           export AWS_DEFAULT_REGION=us-east-1
