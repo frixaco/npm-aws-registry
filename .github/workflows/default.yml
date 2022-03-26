@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::660268862032:role/github-assume
           aws-region: us-east-1
-          role-session-name: GithubActionsSession
       - run: aws sts get-caller-identity
