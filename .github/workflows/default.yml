@@ -3,15 +3,17 @@ name: Default build-publish workflow
 on: push
 
 jobs:
-  build-deploy:
+  build:
     name: Build with CodeBuild and publish with CodeArtifact
-    runs-on: ubuntu-20.04
     permissions:
       id-token: write
-      contents: read
+      contents: write
+    runs-on: ubuntu-20.04
     steps:
-      - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::660268862032:role/github-assume
           aws-region: us-east-1
+          role-session-name: GithubActionsSession
+      - run: aws sts get-caller-identity
