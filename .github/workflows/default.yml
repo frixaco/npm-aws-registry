@@ -3,7 +3,6 @@ name: Default build-publish workflow
 on:
   push
 
-
 jobs:
   build:
     name: Build with CodeBuild and publish with CodeArtifact
@@ -21,3 +20,8 @@ jobs:
           role-to-assume: ${{ env.AWS_ASSUME_ROLE }}
           aws-region: ${{ env.AWS_REGION }}
       - run: aws sts get-caller-identity
+      - name: Run CodeBuild
+        uses: aws-actions/aws-codebuild-run-build@v1
+        with:
+          project-name: api-client-dev
+          buildspec-override: buildspec.yaml
