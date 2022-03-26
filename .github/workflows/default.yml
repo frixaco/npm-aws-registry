@@ -24,4 +24,4 @@ jobs:
         uses: aws-actions/aws-codebuild-run-build@v1
         with:
           project-name: api-client-dev
-          buildspec-override: buildspec.yaml
+          buildspec-override: buildspec.yml
