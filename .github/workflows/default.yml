@@ -3,9 +3,6 @@ name: Default build-publish workflow
 on:
   push
 
-env:
-  AWS_ASSUME_ROLE : ${{ secrets.AWS_ASSUME_ROLE }}
-  AWS_REGION : ${{ secrets.AWS_REGION }}
 
 jobs:
   build:
@@ -15,6 +12,10 @@ jobs:
       contents: write
     runs-on: ubuntu-20.04
     steps:
+      - name: Get envars
+        env:
+          AWS_ASSUME_ROLE : ${{ secrets.AWS_ASSUME_ROLE }}
+          AWS_REGION : ${{ secrets.AWS_REGION }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
