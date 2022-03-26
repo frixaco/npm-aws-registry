@@ -11,11 +11,10 @@ jobs:
       id-token: write
       contents: write
     runs-on: ubuntu-20.04
+    env:
+      AWS_ASSUME_ROLE : ${{ secrets.AWS_ASSUME_ROLE }}
+      AWS_REGION : ${{ secrets.AWS_REGION }}
     steps:
-      - name: Get envars
-        env:
-          AWS_ASSUME_ROLE : ${{ secrets.AWS_ASSUME_ROLE }}
-          AWS_REGION : ${{ secrets.AWS_REGION }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
